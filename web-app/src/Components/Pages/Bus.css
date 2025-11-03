@@ -1,0 +1,118 @@
+.mainDiv {
+  background-image: url('../../Resources/Bus_BgImage.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 92vh;                   /* full viewport height */
+  width: 100vw;                    /* full viewport width */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;            /* give height so image is visible */
+}   
+/* CSS */
+.search-card {
+  position: absolute;          /* place it freely inside the .mainDiv */
+  top: 80px;                   /* distance from top edge */
+  left: 60px; 
+  max-width: 920px;
+  margin: 24px;
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.55); /* faded black */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  color: #fff;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* layout */
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* input group */
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.04);
+  padding: 8px 10px;
+  border-radius: 10px;
+  min-width: 200px;
+  flex: 1 1 200px;
+}
+
+/* small tag label */
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  font-size: 12px;
+  color: #f1f1f1;
+  white-space: nowrap;
+}
+
+/* inputs styling */
+.input-group input[type="text"],
+.input-group input[type="date"] {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  flex: 1;
+  padding: 6px 4px;
+}
+
+/* placeholder color */
+.input-group input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* search button */
+.search-btn {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+  color: #fff;
+  font-weight: 600;
+  transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+}
+
+/* hover/focus states */
+.search-btn:hover { transform: translateY(-2px); }
+.input-group:focus-within { box-shadow: 0 6px 18px rgba(0,0,0,0.45); }
+
+/* make date input consistent across browsers */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(2); /* lighten calendar icon on dark bg */
+}
+
+/* responsive tweaks */
+@media (max-width: 720px) {
+  .row { gap: 10px; }
+  .search-btn { width: 100%; }
+}
+/* Highlight empty input fields */
+.error {
+  border: 2px solid #ff4d4d !important;
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.6);
+  background-color: rgba(255, 0, 0, 0.08);
+  transition: 0.2s ease;
+}
+.BusList{
+    animation: fadeIn 0.3s ease-in;         
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

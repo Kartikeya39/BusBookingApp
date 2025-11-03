@@ -1,16 +1,18 @@
-import React from 'react'
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { Routes, Route, Link } from 'react-router-dom';
+import Bus from './Pages/Bus';
+import Train from './Pages/Train';
 
 const MainBody = () => {
   return (
     <>
-    
-    <header className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <header className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
-          <a className="navbar-brand fw-bold" href="#">
+          <Link className="navbar-brand fw-bold" to="/">
             BusBookingApp
-          </a>
+          </Link>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -20,47 +22,48 @@ const MainBody = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-          <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
+
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link active" href="#">
-                  Home
-                </a>
+                <Link className="nav-link" to="/bus">Bus</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Book Tickets
-                </a>
+                <Link className="nav-link" to="/train">Train</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  About
-                </a>
+                <Link className="nav-link" to="/bookings">My Bookings</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Contact
-                </a>
+                <Link className="nav-link" to="/profile">Profile</Link>
               </li>
             </ul>
           </div>
         </div>
       </header>
 
-      {/* Main Body */}
-      <main className="container my-5">
-        <div className="text-center">
-          <h1 className="display-5 fw-bold text-primary">Welcome to BusBookingApp</h1>
-          <p className="lead text-muted">
-            Book your bus tickets easily and quickly from anywhere.
-          </p>
-          <button className="btn btn-primary btn-lg mt-3">Get Started</button>
-        </div>
+      <main className="body">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="text-center">
+                <h1 className="display-5 fw-bold text-primary">Welcome to BusBookingApp</h1>
+                <p className="lead text-muted">
+                  Book your bus tickets easily and quickly from anywhere.
+                </p>
+                <button className="btn btn-primary btn-lg mt-3">Get Started</button>
+              </div>
+            }
+          />
+          <Route path="/bus" element={<Bus />} />
+          <Route path="/train" element={<Train />} />
+        </Routes>
       </main>
     </>
-  )
-}
+  );
+};
 
-export default MainBody
+export default MainBody;

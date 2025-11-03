@@ -1,6 +1,12 @@
 body {
-  background-color: #f8f9fa;
+  /* background-color: #f8f9fa; */
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 80%;
+  width: 100%;
+  overflow-x: hidden; /* prevents horizontal scrollbars */
+  background-color: #000; /* optional to hide any edge gaps */
 }
 
 header {
@@ -17,12 +23,10 @@ main {
 .navbar-brand {
   letter-spacing: 0.5px;
 }
-
 .nav-link {
   margin-right: 1rem;
   font-weight: 500;
 }
-
 .nav-link:hover {
   text-decoration: underline;
 }
